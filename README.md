@@ -1,4 +1,4 @@
-winter-poem
+Winter Poem
 ===========
 
 A Ghost theme
