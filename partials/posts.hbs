@@ -10,7 +10,7 @@
     <footer class="post-meta">
         <div class="p-author h-card inline" itemprop="author" itemscope itemtype="http://schema.org/Person">
             {{#if author.image}}<img class="author-thumb u-photo" itemprop="image" src="{{author.image}}" alt="Author image" nopin="nopin" />{{/if}}
-            <div class="p-name u-url inline" itemprop="name">{{author}}</div>
+            By <div class="p-name u-url inline" itemprop="name">{{author}}</div>
         </div>
         {{tags prefix="<span> on </span>"}} 
         <time class="post-date dt-published" itemprop="datePublished" content="{{date format='YYYY-MM-DD'}}" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
