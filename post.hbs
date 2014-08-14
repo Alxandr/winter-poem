@@ -3,18 +3,18 @@
 {{! The comment above "< default" means - insert everything in this file into
     the {body} of the default.hbs template, which contains our header/footer. }}
 
-<article class="{{post_class}}">
+<article class="{{post_class}} h-entry">
 {{! Everything inside the #post tags pulls data from the post }}
 {{#post}}
 
     <header class="post-header">
         <section class="post-meta">
-            <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time> {{tags prefix=" on "}}
+            <time class="post-date dt-published" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time> {{tags prefix=" on "}}
         </section>
-        <h1 class="post-title">{{title}}</h1>
+        <h1 class="post-title p-name">{{title}}</h1>
     </header>
 
-    <section class="post-content">
+    <section class="post-content e-content">
         {{content}}
     </section>
 
@@ -23,15 +23,15 @@
     {{! Everything inside the #author tags pulls data from the author }}
     {{#author}}
 
-        <section class="author">
+        <section class="author p-author h-card">
             {{#if image}}
             <figure class="author-image">
-                <a href="{{url}}"><img src="{{image}}" /></a>
+                <a href="{{url}}" class="u-photo"><img src="{{image}}" /></a>
             </figure>
             {{/if}}
             
             <div class="author-meta">
-                <h4><a href="{{url}}">{{name}}</a></h4>
+                <h4><a href="{{url}}" class="p-name u-url">{{name}}</a></h4>
     
                 {{#if bio}}
                     <p>{{bio}}</p>
@@ -39,8 +39,8 @@
                     <p>Read <a href="{{url}}">more posts</a> by this author.</p>
                 {{/if}}
             
-                {{#if location}}<span class="author-location icon-location">{{location}}</span>{{/if}}
-                {{#if website}}<span class="author-link icon-link"><a href="{{website}}">{{website}}</a></span>{{/if}}
+                {{#if location}}<span class="author-location icon-location p-region">{{location}}</span>{{/if}}
+                {{#if website}}<span class="author-link icon-link u-url"><a href="{{website}}">{{website}}</a></span>{{/if}}
             </div>
         </section>
 
