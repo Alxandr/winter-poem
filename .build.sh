@@ -15,4 +15,7 @@ npm install mimosa
 echo "running build"
 node ./node_modules/.bin/mimosa build -mo
 
+echo "deleting node modules"
+rm -rf ./node_modules
+
 popd
