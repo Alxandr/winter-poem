@@ -9,6 +9,9 @@ done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 eval pushd "$DIR"
 
+echo "installing mimosa"
+npm install mimosa
+
 echo "running build"
 node ./node_modules/.bin/mimosa build -mo
 
