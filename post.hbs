@@ -3,18 +3,21 @@
 {{! The comment above "< default" means - insert everything in this file into
     the {body} of the default.hbs template, which contains our header/footer. }}
 
-<article class="{{post_class}} h-entry">
+<article class="{{post_class}} h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 {{! Everything inside the #post tags pulls data from the post }}
 {{#post}}
 
     <header class="post-header">
         <section class="post-meta">
-            <time class="post-date dt-published" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time> {{tags prefix=" on "}}
+            <time class="post-date dt-published" itemprop="datePublished" 
+                  content="{{date format='YYYY-MM-DD'}}" 
+                  datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+            {{tags prefix=" on "}}
         </section>
-        <h1 class="post-title p-name">{{title}}</h1>
+        <h1 class="post-title p-name" itemprop="name">{{title}}</h1>
     </header>
 
-    <section class="post-content e-content">
+    <section class="post-content e-content" itemprop="articleBody">
         {{content}}
     </section>
 
@@ -23,18 +26,18 @@
     {{! Everything inside the #author tags pulls data from the author }}
     {{#author}}
 
-        <section class="author p-author h-card">
+        <section class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
             {{#if image}}
             <figure class="author-image">
-                <a href="{{url}}" class="u-photo"><img src="{{image}}" /></a>
+                <a href="{{url}}" class="u-photo" itemprop="image"><img src="{{image}}" /></a>
             </figure>
             {{/if}}
             
             <div class="author-meta">
-                <h4><a href="{{url}}" class="p-name u-url">{{name}}</a></h4>
+                <h4><a href="{{url}}" class="p-name u-url" itemprop="name">{{name}}</a></h4>
     
                 {{#if bio}}
-                    <p class="p-note">{{bio}}</p>
+                    <p class="p-note" itemprop="description">{{bio}}</p>
                 {{else}}
                     <p>Read <a href="{{url}}">more posts</a> by this author.</p>
                 {{/if}}
