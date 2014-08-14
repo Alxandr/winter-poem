@@ -1,0 +1,22 @@
+{
+  "name": "winter-poem",
+  "version": "0.1.0",
+  "description": "A Ghost theme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alxandr/winter-poem.git"
+  },
+  "keywords": [
+    "ghost",
+    "theme"
+  ],
+  "author": "Alxandr",
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/Alxandr/winter-poem/issues"
+  },
+  "homepage": "https://github.com/Alxandr/winter-poem"
+}

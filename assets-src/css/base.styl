@@ -1,0 +1,85 @@
+@require 'mixins'
+@require 'reset'
+
+body
+  font-size: 1rem
+  font-family: "Raleway", sans-serif
+  color: #666
+
+h1, h2, h3, h4, h5, h6
+  margin-top: .8em
+  margin-bottom: .4em
+  font-family: "Roboto Slab", serif
+  font-weight: lighter
+  color: #333
+  smooth()
+
+h1
+  margin-top: 0
+  font-size: 3.2rem
+  line-height: 1.2em
+  letter-spacing: .05em
+
+h2
+  font-size: 2.2rem
+
+p
+  line-height: 1.7em
+  margin-bottom: 1.3em
+
+a
+  text-decoration: none
+  color: #e25440
+  cursor: pointer
+  transition: color .5s
+  
+  &:hover
+    color: #b9301c !important
+
+hr
+  border: none
+  
+blockquote
+  margin: 1em 0
+  font-style: italic
+  border-left: 4px solid #666
+  padding-left: 1.5em
+
+ul, ol
+  margin: 0 0 1.3em 2.5em
+  
+  li
+    margin: 0 0 .2em 0
+    line-height: 1.6em
+
+ul
+  list-style-type: disc
+
+pre
+  margin-bottom: 1.3em
+  padding: 0.5em 1.5%
+  background: #221a0f
+  border: 1px solid #d3af86
+  border-radius: 3px
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif
+  font-size: .8rem
+  font-weight: normal
+  line-height: 1.3em
+  color: #d6baad
+
+code
+  font-size: 0.7rem
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif
+  
+  p &
+    white-space: nowrap
+    display: inline-block
+    border-radius: 3px
+    background: #f3f3f3
+    font-size: .8rem
+
+strong, b
+  font-weight: bold
+
+em
+  font-style: italic

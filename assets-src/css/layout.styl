@@ -1,0 +1,137 @@
+use-deep            ?= false
+attr-layout         ?= 'layout'
+attr-vertical       ?= 'vertical'
+attr-horizontal     ?= 'horizontal'
+attr-wrap           ?= 'wrap'
+attr-reverse        ?= 'reverse'
+attr-inline         ?= 'inline'
+attr-flex           ?= 'flex'
+attr-auto           ?= 'auto'
+attr-none           ?= 'none'
+attr-start          ?= 'start'
+attr-center         ?= 'center'
+attr-end            ?= 'end'
+attr-justified      ?= 'justified'
+attr-around         ?= 'around'
+attr-self           ?= 'self'
+attr-stretch        ?= 'stretch'
+attr-fullbleed      ?= 'fullbleed'
+attr-fit            ?= 'fit'
+attr-relative       ?= 'relative'
+attr-hidden         ?= 'hidden'
+attr-block          ?= 'block'
+grid-vals           ?= 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve'
+
+if use-deep
+  deep = '/deep/ '
+else
+  deep = ''
+  
+/*!
+ * Layout
+ */
+
+html {deep}[{attr-layout}]
+  display: flex
+  
+  &[{attr-inline}]
+    display: inline-flex
+
+  &[{attr-wrap}]
+    flex-wrap: wrap
+    
+    &[{attr-reverse}]
+      flex-wrap: wrap-reverse
+
+html {deep}[{attr-layout}=''],
+html {deep}[{attr-layout}={s('%s', attr-horizontal)}]
+  flex-direction: row
+
+  &[{attr-reverse}]
+    flex-direction: row-reverse
+
+html {deep}[{attr-layout}={s('%s', attr-vertical)}]
+  flex-direction: column
+
+  &[{attr-reverse}]
+    flex-direction: column-reverse
+
+html {deep}[{attr-flex}]
+  flex: 1
+
+html {deep}[{attr-flex}='auto']
+  flex: 1 1 auto
+
+html {deep}[{attr-flex}='none']
+  flex: none
+
+for attr-name, flex-val in grid-vals
+  attr-name = s('%s', attr-name)
+  html {deep}[{attr-flex}={attr-name}]
+    flex: (flex-val + 1)
+
+/* alignment in cross axis */
+html {deep}[{attr-layout}][{attr-start}]
+  align-items: flex-start
+
+html {deep}[{attr-layout}][{attr-center}],
+html {deep}[{attr-layout}][{attr-center}-{attr-center}]
+  align-items: center
+
+html {deep}[{attr-layout}][{attr-end}]
+  align-items: flex-end
+
+/* alignment in main axis */
+html {deep}[{attr-layout}][{attr-start}-{attr-justified}]
+  justify-content: flex-start
+
+html {deep}[{attr-layout}][{attr-center}-{attr-justified}],
+html {deep}[{attr-layout}][{attr-center}-{attr-center}]
+  justify-content: center
+
+html {deep}[{attr-layout}][{attr-end}-{attr-justified}]
+  justify-content: flex-end
+
+html {deep}[{attr-layout}][{attr-around}-{attr-justified}]
+  justify-content: space-around
+
+html {deep}[{attr-layout}][{attr-justified}]
+  justify-content: space-between
+
+/* self alignment */
+html {deep}[{attr-self}-{attr-start}]
+  align-self: flex-start
+
+html {deep}[{attr-self}-{attr-center}]
+  align-self: center
+
+html {deep}[{attr-self}-{attr-end}]
+  align-self: flex-end
+
+html {deep}[{attr-self}-{attr-stretch}]
+  align-self: stretch
+
+/*!
+ * Other layout
+ */
+
+html {deep}[{attr-block}]
+  display: block
+
+/* ie support for hidden */
+html {deep}[{attr-hidden}]
+  display: none !important
+
+html {deep}[{attr-relative}]
+  position: relative
+
+html {deep}[{attr-fit}]
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+
+body[{attr-fullbleed}]
+  margin: 0
+  height: 100vh
