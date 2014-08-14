@@ -11,11 +11,15 @@
         {{#if author.image}}<img class="author-thumb" src="{{author.image}}" alt="Author image" nopin="nopin" />{{/if}}
         {{author}}
         {{tags prefix="<span> on </span>"}} 
-        <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time> 
+        <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+        &#8226;
+        <a href="{{url}}#disqus_thread">0 Comments</a>
         <hr />
     </footer>
 </article>
 {{/foreach}}
+
+{{> disqus-count }}
 
 {{! Previous/next page links - displayed on every page }}
 {{pagination}}
