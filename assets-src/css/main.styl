@@ -1,4 +1,5 @@
 @require 'mixins'
+@require 'variables'
 
 /*!
  * Main
@@ -14,8 +15,12 @@ div.content-wrapper
   max-width: 800px
   margin-left: 40%
   
-  @media (min-width: 1330px)
+  @media (min-width: width-desktop)
     margin-left: 530px
+  
+  @media (max-width: width-mobile)
+    margin-left: 0
+    width: 100%
   
   > div
     margin: 0 10%

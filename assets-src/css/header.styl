@@ -1,3 +1,6 @@
+@require 'mixins'
+@require 'variables'
+
 header.main-header
   display: block
   position: fixed
@@ -7,6 +10,16 @@ header.main-header
   background-size: cover
   width: 40%
   max-width: 530px
+  
+  @media (max-width: width-mobile)
+    position: relative
+    width: 100vw
+    height: 100vh
+    min-width: 100vw
+    max-width: 100vw
+    min-height: 100vh
+    max-height: 100vh
+    margin: 0
   
   &.no-cover
     background: url('../images/background-cover.jpg') top left no-repeat #666666

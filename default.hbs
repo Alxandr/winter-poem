@@ -37,7 +37,7 @@
                     
                     <nav class="main-nav">
                         <ul class="navigation">
-                            <li class="navigation__item"><a href="/#posts" title="link to {{@blog.title}} blog" class="blog-button">Posts</a></li>
+                            <li class="navigation__item"><a href="/#content" title="link to {{@blog.title}} blog" class="blog-button">Posts</a></li>
                         </ul>
                         
                         {{> social}}
@@ -65,6 +65,8 @@
     {{ghost_foot}}
 
     {{! The main JavaScript file for Winder Poem }}
+    <script type="text/javascript" src="{{asset "js/launchscroll.js"}}"></script>
+    
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/languages/cs.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/languages/css.min.js"></script>
